@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ish Kumar | Data Scientist Portfolio</title>
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/npm/heroicons@2.0.18/24/solid/user-circle.svg">
+  <style>
+    body { background: #18181b; color: #f3f4f6; }
+    .accent { color: #a78bfa; }
+    .bg-accent { background-color: #a78bfa; }
+    .border-accent { border-color: #a78bfa; }
+    .hover\:bg-accent:hover { background-color: #a78bfa; color: #18181b; }
+    .glass {
+      background: rgba(24, 24, 27, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .gradient-animate {
+      background: linear-gradient(270deg, #a78bfa, #6366f1, #f472b6, #a78bfa);
+      background-size: 800% 800%;
+      animation: gradientBG 16s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% {background-position:0% 50%}
+      50% {background-position:100% 50%}
+      100% {background-position:0% 50%}
+    }
+  </style>
+</head>
+<body class="font-sans bg-[#18181b] text-gray-100">
+  <!-- Navbar -->
+  <nav class="fixed w-full z-20 top-0 left-0 glass border-b border-gray-800 shadow-xl transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
+      <div class="text-2xl font-bold accent tracking-tight">Ish Kumar</div>
+      <div class="space-x-6 hidden md:flex">
+        <a href="#home" class="hover:text-accent transition-colors duration-200">Home</a>
+        <a href="#about" class="hover:text-accent transition-colors duration-200">About</a>
+        <a href="#projects" class="hover:text-accent transition-colors duration-200">Projects</a>
+        <a href="#experience" class="hover:text-accent transition-colors duration-200">Experience</a>
+        <a href="#resume" class="hover:text-accent transition-colors duration-200">Resume</a>
+        <a href="#contact" class="hover:text-accent transition-colors duration-200">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Animated Gradient and Scroll Indicator -->
+  <section id="home" class="relative min-h-screen flex flex-col justify-center items-center pt-40 pb-16 gradient-animate overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+    <!-- To use your own photo, save it as 'profile.jpg' (or .png) in the same folder as index.html -->
+    <img src="profile.png" alt="Profile Photo" class="w-48 h-48 mb-6 mt-12 rounded-full border-4 border-accent shadow-lg object-cover object-top z-10" data-aos="zoom-in" data-aos-delay="200">
+    <h1 class="text-6xl md:text-7xl font-extrabold mb-2 tracking-tight z-10">Ish Kumar</h1>
+    <p class="accent text-2xl mb-4 font-medium z-10 bg-[#232336]/80 px-4 py-2 rounded-lg shadow-lg" style="backdrop-filter: blur(2px);">Data Scientist | AI & ML Enthusiast</p>
+    <p class="max-w-xl text-center mb-8 text-lg text-gray-200 z-10">Building robust data solutions, AI-powered applications, and innovative analytics. Passionate about transforming data into actionable insights.</p>
+    <div class="flex space-x-4 z-10">
+      <a href="mailto:ishkumar@buffalo.edu" class="hover:bg-accent border border-accent px-5 py-2 rounded-lg transition-colors duration-200 font-semibold transform hover:-translate-y-1 hover:scale-105">Email</a>
+      <a href="https://linkedin.com/in/ish-kumar" target="_blank" class="hover:bg-accent border border-accent px-5 py-2 rounded-lg transition-colors duration-200 font-semibold transform hover:-translate-y-1 hover:scale-105">LinkedIn</a>
+      <a href="https://github.com/ish-kumar" target="_blank" class="hover:bg-accent border border-accent px-5 py-2 rounded-lg transition-colors duration-200 font-semibold transform hover:-translate-y-1 hover:scale-105">GitHub</a>
+    </div>
+    <!-- Scroll Down Indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center">
+      <span class="text-accent animate-bounce text-3xl">↓</span>
+      <span class="text-xs text-gray-300 mt-1">Scroll Down</span>
+    </div>
+    <!-- Animated Particles (subtle) -->
+    <div class="absolute inset-0 pointer-events-none z-0">
+      <svg width="100%" height="100%">
+        <circle cx="20%" cy="30%" r="2.5" fill="#a78bfa" opacity="0.5">
+          <animate attributeName="cy" values="30%;70%;30%" dur="8s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="80%" cy="60%" r="3" fill="#f472b6" opacity="0.4">
+          <animate attributeName="cy" values="60%;20%;60%" dur="10s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="50%" cy="80%" r="2" fill="#6366f1" opacity="0.4">
+          <animate attributeName="cy" values="80%;40%;80%" dur="12s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Wavy Divider -->
+  <div class="-mt-1">
+    <svg viewBox="0 0 1440 100" class="w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#232336" d="M0,0 C480,100 960,0 1440,100 L1440,100 L0,100 Z"></path>
+    </svg>
+  </div>
+
+  <!-- About Section with Animated Skill Bars and Fun Facts -->
+  <section id="about" class="max-w-4xl mx-auto py-20 px-4" data-aos="fade-right" data-aos-delay="100">
+    <h2 class="text-3xl font-bold accent mb-8 border-b border-accent pb-2">About Me</h2>
+    <div class="bg-[#232336] rounded-xl shadow-lg p-8 border border-gray-700" data-aos="zoom-in-up" data-aos-delay="200">
+      <p class="mb-6 text-lg text-gray-200">I am a data scientist with an M.S. in Engineering Science (Data Science) from the University at Buffalo, specializing in machine learning, data science and AI product development. My experience spans prompt engineering, large language models (LLMs), predictive analytics and building end-to-end AI solutions. I have developed tools for prompt optimization, retrieval-augmented generation, and fraud detection in both research and industry settings. I thrive in cross-functional teams, turning complex data into actionable insights and impactful products.</p>
+      <div class="space-y-8">
+        <div>
+          <h3 class="font-semibold accent mb-2 text-lg">Languages</h3>
+          <div class="flex flex-wrap gap-3 mb-4">
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Python</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">SQL</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">R</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">MATLAB</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Excel</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold accent mb-2 text-lg">ML & AI</h3>
+          <div class="flex flex-wrap gap-3 mb-4">
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Pandas</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">NumPy</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Scikit-learn</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">A/B Testing</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Model Evaluation</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">TensorFlow</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">PyTorch</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Transformers</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">LLMs</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Prompt Engineering</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">NER</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Sentiment Analysis</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Classification</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Regression</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Clustering</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Time Series</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Feature Engineering</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Data Cleaning</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Data Preprocessing</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Hyperparameter Tuning</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Cross Validation</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold accent mb-2 text-lg">Frameworks & Tools</h3>
+          <div class="flex flex-wrap gap-3 mb-4">
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">LangChain</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">FAISS</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Django</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">OpenAI</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Streamlit</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">FastAPI</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Flask</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">REST APIs</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold accent mb-2 text-lg">Data Visualization</h3>
+          <div class="flex flex-wrap gap-3 mb-4">
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Tableau</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Seaborn</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Plotly</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Matplotlib</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold accent mb-2 text-lg">Cloud & DevOps</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">AWS</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">S3</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Lambda</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Bedrock</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Docker</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Git</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">GitHub Actions</span>
+            <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">CI/CD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wavy Divider -->
+  <div class="-mt-1">
+    <svg viewBox="0 0 1440 100" class="w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#18181b" d="M0,0 C480,100 960,0 1440,100 L1440,100 L0,100 Z"></path>
+    </svg>
+  </div>
+
+  <!-- Education Section -->
+  <section id="education" class="max-w-4xl mx-auto py-20 px-4" data-aos="fade-up" data-aos-delay="100">
+    <h2 class="text-3xl font-bold accent mb-8 border-b border-accent pb-2">Education</h2>
+    <div class="space-y-8">
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700">
+        <h3 class="text-xl font-semibold mb-1">University at Buffalo, New York</h3>
+        <span class="text-xs accent">M.S. in Engineering Science (Data Science)</span><br/>
+        <span class="text-xs text-gray-400">Aug 2022 – Feb 2024</span>
+      </div>
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700">
+        <h3 class="text-xl font-semibold mb-1">APJAK Technical University, India</h3>
+        <span class="text-xs accent">B.E. in Electronics & Communication</span><br/>
+        <span class="text-xs text-gray-400">Aug 2018 – Jul 2022</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section with Interactive Cards -->
+  <section id="projects" class="max-w-6xl mx-auto py-20 px-4" data-aos="fade-left" data-aos-delay="100">
+    <h2 class="text-3xl font-bold accent mb-8 border-b border-accent pb-2">Projects</h2>
+    <div class="grid md:grid-cols-2 gap-10 items-stretch">
+      <!-- Featured Project (now same size as others for alignment, overlay removed) -->
+      <div class="relative bg-gradient-to-br from-[#a78bfa] to-[#6366f1] rounded-xl shadow-lg p-7 border-2 border-accent hover:scale-105 transition-transform duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+        <div class="absolute -top-8 -right-8 bg-[#232336] text-accent px-4 py-1 rounded-full shadow-lg font-bold text-xs rotate-12">Featured</div>
+        <div>
+          <h3 class="text-xl font-bold mb-2 text-[#18181b]">Promptly – Chrome Extension for Prompt Optimization</h3>
+          <p class="text-base mb-3 text-[#18181b]">Chrome extension to optimize, rewrite, and enhance LLM prompts for clarity, creativity, and efficiency. Integrates OpenRouter and Google APIs for real-time, context-aware prompt enhancements.</p>
+          <div class="flex space-x-2 mb-3">
+            <span class="bg-[#18181b] text-accent text-xs px-2 py-1 rounded font-semibold">JavaScript</span>
+            <span class="bg-[#18181b] text-accent text-xs px-2 py-1 rounded font-semibold">OpenRouter</span>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <a href="https://github.com/ish-kumar/Promptly" target="_blank" class="accent underline hover:text-[#18181b] transition font-semibold">View on GitHub</a>
+        </div>
+      </div>
+      <!-- Other Projects (overlay removed) -->
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="text-xl font-semibold mb-2">Hybrid Prompt Injection Detection System</h3>
+        <p class="text-base mb-3 text-gray-300">Hybrid system integrating regular expressions, compound pattern analysis, and machine learning classifiers to detect prompt injection attacks. Adaptable to various LLMs.</p>
+        <div class="flex space-x-2 mb-3">
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">Python</span>
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">ML</span>
+        </div>
+        <a href="https://github.com/ish-kumar/Hybrid-Prompt-Injection-Detection-System" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
+      </div>
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="400">
+        <h3 class="text-xl font-semibold mb-2">Automated SQL Query Generator using Google Gemini</h3>
+        <p class="text-base mb-3 text-gray-300">Streamlit app using Google Gemini to generate SQL queries from natural language, with dynamic validation and optimization. Achieved 95%+ accuracy across diverse query types.</p>
+        <div class="flex space-x-2 mb-3">
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">Python</span>
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">Streamlit</span>
+        </div>
+        <a href="https://github.com/ish-kumar/TextToSQL" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
+      </div>
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="500">
+        <h3 class="text-xl font-semibold mb-2">Multiagent RAG System</h3>
+        <p class="text-base mb-3 text-gray-300">Modular RAG system combining LangChain and FAISS for vector-based document retrieval and real-time query handling. Boosted efficiency by 25%.</p>
+        <div class="flex space-x-2 mb-3">
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">Python</span>
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">LangChain</span>
+        </div>
+        <a href="https://github.com/ish-kumar/RAG-groq-llangchain" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
+      </div>
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="600">
+        <h3 class="text-xl font-semibold mb-2">Data Storytelling</h3>
+        <p class="text-base mb-3 text-gray-300">A collection of data storytelling projects and notebooks, focusing on effective communication of insights using Python and visualization libraries.</p>
+        <div class="flex space-x-2 mb-3">
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">Python</span>
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">Jupyter</span>
+        </div>
+        <a href="https://github.com/ish-kumar/Data-Storytelling" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
+      </div>
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="700">
+        <h3 class="text-xl font-semibold mb-2">Spotify Recommender System</h3>
+        <p class="text-base mb-3 text-gray-300">A music recommender system using collaborative filtering and content-based methods, built with Python and Jupyter.</p>
+        <div class="flex space-x-2 mb-3">
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">Python</span>
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">Jupyter</span>
+        </div>
+        <a href="https://github.com/ish-kumar/Spotify-Recommender-System" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
+      </div>
+      <!-- MRI Scan Classification Project -->
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="800">
+        <h3 class="text-xl font-semibold mb-2">MRI Scan Classification</h3>
+        <p class="text-base mb-3 text-gray-300">Developed a robust deep learning model to classify MRI scans as problematic or non-problematic, contributing to medical diagnosis efficiency. Utilized pre-trained ResNet50 architecture to extract high-level features from MRI images and Grad-CAM to visualize the regions of interest contributing to classification decisions, achieving an accuracy of 89%.</p>
+        <div class="flex space-x-2 mb-3">
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">Python</span>
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">Deep Learning</span>
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">ResNet50</span>
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">Grad-CAM</span>
+        </div>
+        <a href="https://github.com/ish-kumar/MRI-Scan-Classification" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wavy Divider -->
+  <div class="-mt-1">
+    <svg viewBox="0 0 1440 100" class="w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#232336" d="M0,0 C480,100 960,0 1440,100 L1440,100 L0,100 Z"></path>
+    </svg>
+  </div>
+
+  <!-- Experience Section as Timeline -->
+  <section id="experience" class="max-w-4xl mx-auto py-20 px-4" data-aos="fade-right" data-aos-delay="100">
+    <h2 class="text-3xl font-bold accent mb-8 border-b border-accent pb-2">Experience</h2>
+    <div class="relative border-l-4 border-accent pl-8 space-y-12">
+      <div class="relative" data-aos="fade-up" data-aos-delay="150">
+        <div class="absolute -left-5 top-2 w-4 h-4 bg-accent rounded-full border-4 border-[#232336] animate-pulse"></div>
+        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg">
+          <h3 class="text-xl font-semibold mb-1">Prompt Engineer (Part-Time) – Outlier.AI</h3>
+          <span class="text-xs accent">Aug 2024 – May 2025</span>
+          <ul class="list-disc list-inside text-base mt-2 space-y-1 text-gray-300">
+            <li>Developed Python scripts to evaluate AI model performance on code generation for data analysis tasks (NumPy, pandas, matplotlib, scikit-learn).</li>
+            <li>Engineered and refined prompts using few-shot learning and chain-of-thought techniques for LLM debugging and optimization.</li>
+            <li>Conducted 100+ evaluations of AI-generated code, improving feedback precision by 30% for RLHF.</li>
+            <li>Fine-tuned prompts and outputs, increasing output reliability and feedback accuracy.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="relative" data-aos="fade-up" data-aos-delay="200">
+        <div class="absolute -left-5 top-2 w-4 h-4 bg-accent rounded-full border-4 border-[#232336] animate-pulse"></div>
+        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg">
+          <h3 class="text-xl font-semibold mb-1">Research Assistant – University at Buffalo, Computational Biology Lab</h3>
+          <span class="text-xs accent">Feb 2024 – Dec 2024</span>
+          <ul class="list-disc list-inside text-base mt-2 space-y-1 text-gray-300">
+            <li>Developed Python pipelines for compound-protein interaction datasets, reducing preprocessing time by 35%.</li>
+            <li>Performed data analysis and statistical validation of compound efficacy predictions.</li>
+            <li>Built dashboards with Streamlit and Plotly to visualize compound-target relationships.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="relative" data-aos="fade-up" data-aos-delay="300">
+        <div class="absolute -left-5 top-2 w-4 h-4 bg-accent rounded-full border-4 border-[#232336] animate-pulse"></div>
+        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg">
+          <h3 class="text-xl font-semibold mb-1">Associate Data Scientist – Airdrive Smart Solutions</h3>
+          <span class="text-xs accent">Jun 2021 – Jul 2022</span>
+          <ul class="list-disc list-inside text-base mt-2 space-y-1 text-gray-300">
+            <li>Automated data preprocessing pipelines, reducing manual cleaning by 20%.</li>
+            <li>Designed and analyzed A/B tests for fraud detection, improving F1-score from 72% to 81%.</li>
+            <li>Developed NER and text classification models for product category extraction and sentiment analysis (78% accuracy).</li>
+            <li>Implemented Gradient Boosting and Random Forest for anomaly detection, boosting detection rates by 10%.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="relative" data-aos="fade-up" data-aos-delay="400">
+        <div class="absolute -left-5 top-2 w-4 h-4 bg-accent rounded-full border-4 border-[#232336] animate-pulse"></div>
+        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg">
+          <h3 class="text-xl font-semibold mb-1">Associate Data Scientist – Value Creation</h3>
+          <span class="text-xs accent">Aug 2020 – Apr 2021</span>
+          <ul class="list-disc list-inside text-base mt-2 space-y-1 text-gray-300">
+            <li>Engineered time series forecasting models (ARIMA, Prophet) for workforce demand prediction.</li>
+            <li>Built random forest and XGBoost models for employee churn prediction, improving accuracy from 74% to 86%.</li>
+            <li>Designed Tableau dashboards with PostgreSQL to monitor HR and campaign KPIs, reducing reporting lag by 24%.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="relative" data-aos="fade-up" data-aos-delay="500">
+        <div class="absolute -left-5 top-2 w-4 h-4 bg-accent rounded-full border-4 border-[#232336] animate-pulse"></div>
+        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg">
+          <h3 class="text-xl font-semibold mb-1">Big Data Analytics Intern – LG Electronics</h3>
+          <span class="text-xs accent">Mar 2019 – Aug 2019</span>
+          <ul class="list-disc list-inside text-base mt-2 space-y-1 text-gray-300">
+            <li>Implemented sentiment analysis on Amazon and YouTube reviews (80% accuracy).</li>
+            <li>Built web scrapers with Python, BeautifulSoup, and Selenium to extract contact info from newspapers.</li>
+            <li>Led a team to deploy a retail floor heatmap using Keras and OpenCV, improving customer interaction by 30%.</li>
+            <li>Mentored incoming interns through workshops.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wavy Divider -->
+  <div class="-mt-1">
+    <svg viewBox="0 0 1440 100" class="w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#18181b" d="M0,0 C480,100 960,0 1440,100 L1440,100 L0,100 Z"></path>
+    </svg>
+  </div>
+
+  <!-- Resume Section -->
+  <section id="resume" class="max-w-4xl mx-auto py-20 px-4 text-center" data-aos="fade-up" data-aos-delay="100">
+    <h2 class="text-3xl font-bold accent mb-8 border-b border-accent pb-2">Resume</h2>
+    <div class="bg-[#232336] rounded-xl shadow-lg p-10 border border-gray-700 inline-block" data-aos="zoom-in" data-aos-delay="200">
+      <p class="mb-6 text-lg text-gray-200">Download my latest resume for a detailed overview of my experience, skills, and projects.</p>
+      <a href="resume.pdf" download class="hover:bg-accent border border-accent px-8 py-3 rounded-lg transition-colors duration-200 font-semibold transform hover:-translate-y-1 hover:scale-105">Download Resume (PDF)</a>
+    </div>
+  </section>
+
+  <!-- Contact Section with Animated Social Icons -->
+  <section id="contact" class="max-w-4xl mx-auto py-20 px-4" data-aos="fade-up" data-aos-delay="100">
+    <h2 class="text-3xl font-bold accent mb-8 border-b border-accent pb-2">Contact</h2>
+    <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
+      <div class="flex-1 bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="mb-2 font-semibold">Email</div>
+        <a href="mailto:ishkumar@buffalo.edu" class="accent underline hover:text-white transition text-2xl flex items-center gap-2"><span class="animate-pulse">✉️</span>ishkumar@buffalo.edu</a>
+      </div>
+      <div class="flex-1 bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
+        <div class="mb-2 font-semibold">LinkedIn</div>
+        <a href="https://linkedin.com/in/ish-kumar" target="_blank" class="accent underline hover:text-white transition text-2xl flex items-center gap-2"><span class="animate-bounce">💼</span>linkedin.com/in/ish-kumar</a>
+      </div>
+      <div class="flex-1 bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
+        <div class="mb-2 font-semibold">GitHub</div>
+        <a href="https://github.com/ish-kumar" target="_blank" class="accent underline hover:text-white transition text-2xl flex items-center gap-2"><span class="animate-spin">🐙</span>github.com/ish-kumar</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center py-8 text-gray-500 text-sm">
+    &copy; 2024 Ish Kumar. Powered by Tailwind CSS.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
+</body>
+</html> 
