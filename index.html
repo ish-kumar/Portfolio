@@ -29,6 +29,55 @@
       50% {background-position:100% 50%}
       100% {background-position:0% 50%}
     }
+    #typewriter::after {
+      content: '|';
+      animation: blink 1s steps(1) infinite;
+      color: #a78bfa;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .animate-bounce-pulse {
+      animation: bounce-pulse 1.5s infinite;
+    }
+    @keyframes bounce-pulse {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      20% { transform: translateY(-8px); }
+      40% { transform: translateY(0); }
+      50% { opacity: 0.7; }
+      60% { transform: translateY(-4px); }
+      80% { transform: translateY(0); opacity: 1; }
+    }
+    .floating-1 { animation: float1 7s ease-in-out infinite alternate; }
+    .floating-2 { animation: float2 9s ease-in-out infinite alternate; }
+    .floating-3 { animation: float3 11s ease-in-out infinite alternate; }
+    @keyframes float1 { 0%{cy:30%;} 100%{cy:70%;} }
+    @keyframes float2 { 0%{cy:60%;} 100%{cy:20%;} }
+    @keyframes float3 { 0%{cy:80%;} 100%{cy:40%;} }
+    .skill-badges > span {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.4s, transform 0.4s;
+    }
+    .skill-badges.visible > span {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .card-anim {
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .card-anim:hover {
+      box-shadow: 0 8px 32px 0 #a78bfa44, 0 1.5px 6px 0 #0002;
+      transform: translateY(-8px) scale(1.03);
+    }
+    .social-anim a {
+      transition: transform 0.3s, color 0.3s;
+    }
+    .social-anim a:hover {
+      transform: scale(1.15) rotate(-6deg);
+      color: #a78bfa;
+    }
   </style>
 </head>
 <body class="font-sans bg-[#18181b] text-gray-100">
@@ -51,31 +100,25 @@
   <section id="home" class="relative min-h-screen flex flex-col justify-center items-center pt-40 pb-16 gradient-animate overflow-hidden" data-aos="fade-up" data-aos-delay="100">
     <!-- To use your own photo, save it as 'profile.jpg' (or .png) in the same folder as index.html -->
     <img src="profile.png" alt="Profile Photo" class="w-48 h-48 mb-6 mt-12 rounded-full border-4 border-accent shadow-lg object-cover object-top z-10" data-aos="zoom-in" data-aos-delay="200">
-    <h1 class="text-6xl md:text-7xl font-extrabold mb-2 tracking-tight z-10">Ish Kumar</h1>
+    <h1 id="typewriter" class="text-6xl md:text-7xl font-extrabold mb-2 tracking-tight z-10"></h1>
     <p class="accent text-2xl mb-4 font-medium z-10 bg-[#232336]/80 px-4 py-2 rounded-lg shadow-lg" style="backdrop-filter: blur(2px);">Data Scientist | AI & ML Enthusiast</p>
     <p class="max-w-xl text-center mb-8 text-lg text-gray-200 z-10">Building robust data solutions, AI-powered applications, and innovative analytics. Passionate about transforming data into actionable insights.</p>
     <div class="flex space-x-4 z-10">
-      <a href="mailto:ishkumar@buffalo.edu" class="hover:bg-accent border border-accent px-5 py-2 rounded-lg transition-colors duration-200 font-semibold transform hover:-translate-y-1 hover:scale-105">Email</a>
-      <a href="https://linkedin.com/in/ish-kumar" target="_blank" class="hover:bg-accent border border-accent px-5 py-2 rounded-lg transition-colors duration-200 font-semibold transform hover:-translate-y-1 hover:scale-105">LinkedIn</a>
-      <a href="https://github.com/ish-kumar" target="_blank" class="hover:bg-accent border border-accent px-5 py-2 rounded-lg transition-colors duration-200 font-semibold transform hover:-translate-y-1 hover:scale-105">GitHub</a>
+      <a href="mailto:ishkumar@buffalo.edu" class="hover:bg-accent border border-accent px-5 py-2 rounded-lg transition-transform duration-200 font-semibold transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl">Email</a>
+      <a href="https://linkedin.com/in/ish-kumar" target="_blank" class="hover:bg-accent border border-accent px-5 py-2 rounded-lg transition-transform duration-200 font-semibold transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl">LinkedIn</a>
+      <a href="https://github.com/ish-kumar" target="_blank" class="hover:bg-accent border border-accent px-5 py-2 rounded-lg transition-transform duration-200 font-semibold transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl">GitHub</a>
     </div>
     <!-- Scroll Down Indicator -->
     <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center">
-      <span class="text-accent animate-bounce text-3xl">↓</span>
+      <span class="text-accent animate-bounce-pulse text-3xl">↓</span>
       <span class="text-xs text-gray-300 mt-1">Scroll Down</span>
     </div>
     <!-- Animated Particles (subtle) -->
     <div class="absolute inset-0 pointer-events-none z-0">
       <svg width="100%" height="100%">
-        <circle cx="20%" cy="30%" r="2.5" fill="#a78bfa" opacity="0.5">
-          <animate attributeName="cy" values="30%;70%;30%" dur="8s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="80%" cy="60%" r="3" fill="#f472b6" opacity="0.4">
-          <animate attributeName="cy" values="60%;20%;60%" dur="10s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="50%" cy="80%" r="2" fill="#6366f1" opacity="0.4">
-          <animate attributeName="cy" values="80%;40%;80%" dur="12s" repeatCount="indefinite"/>
-        </circle>
+        <circle cx="20%" cy="30%" r="2.5" fill="#a78bfa" opacity="0.5" class="floating-1"></circle>
+        <circle cx="80%" cy="60%" r="3" fill="#f472b6" opacity="0.4" class="floating-2"></circle>
+        <circle cx="50%" cy="80%" r="2" fill="#6366f1" opacity="0.4" class="floating-3"></circle>
       </svg>
     </div>
   </section>
@@ -95,7 +138,7 @@
       <div class="space-y-8">
         <div>
           <h3 class="font-semibold accent mb-2 text-lg">Languages</h3>
-          <div class="flex flex-wrap gap-3 mb-4">
+          <div class="flex flex-wrap gap-3 mb-4 skill-badges">
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Python</span>
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">SQL</span>
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">R</span>
@@ -105,7 +148,7 @@
         </div>
         <div>
           <h3 class="font-semibold accent mb-2 text-lg">ML & AI</h3>
-          <div class="flex flex-wrap gap-3 mb-4">
+          <div class="flex flex-wrap gap-3 mb-4 skill-badges">
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Pandas</span>
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">NumPy</span>
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Scikit-learn</span>
@@ -131,7 +174,7 @@
         </div>
         <div>
           <h3 class="font-semibold accent mb-2 text-lg">Frameworks & Tools</h3>
-          <div class="flex flex-wrap gap-3 mb-4">
+          <div class="flex flex-wrap gap-3 mb-4 skill-badges">
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">LangChain</span>
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">FAISS</span>
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Django</span>
@@ -144,7 +187,7 @@
         </div>
         <div>
           <h3 class="font-semibold accent mb-2 text-lg">Data Visualization</h3>
-          <div class="flex flex-wrap gap-3 mb-4">
+          <div class="flex flex-wrap gap-3 mb-4 skill-badges">
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Tableau</span>
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Seaborn</span>
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Plotly</span>
@@ -153,7 +196,7 @@
         </div>
         <div>
           <h3 class="font-semibold accent mb-2 text-lg">Cloud & DevOps</h3>
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-3 skill-badges">
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">AWS</span>
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">S3</span>
             <span class="bg-accent/20 text-accent px-4 py-1 rounded-full text-base font-medium">Lambda</span>
@@ -179,15 +222,13 @@
   <section id="education" class="max-w-4xl mx-auto py-20 px-4" data-aos="fade-up" data-aos-delay="100">
     <h2 class="text-3xl font-bold accent mb-8 border-b border-accent pb-2">Education</h2>
     <div class="space-y-8">
-      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700">
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 card-anim">
         <h3 class="text-xl font-semibold mb-1">University at Buffalo, New York</h3>
         <span class="text-xs accent">M.S. in Engineering Science (Data Science)</span><br/>
-        <span class="text-xs text-gray-400">Aug 2022 – Feb 2024</span>
       </div>
-      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700">
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 card-anim">
         <h3 class="text-xl font-semibold mb-1">APJAK Technical University, India</h3>
         <span class="text-xs accent">B.E. in Electronics & Communication</span><br/>
-        <span class="text-xs text-gray-400">Aug 2018 – Jul 2022</span>
       </div>
     </div>
   </section>
@@ -197,7 +238,7 @@
     <h2 class="text-3xl font-bold accent mb-8 border-b border-accent pb-2">Projects</h2>
     <div class="grid md:grid-cols-2 gap-10 items-stretch">
       <!-- Featured Project (now same size as others for alignment, overlay removed) -->
-      <div class="relative bg-gradient-to-br from-[#a78bfa] to-[#6366f1] rounded-xl shadow-lg p-7 border-2 border-accent hover:scale-105 transition-transform duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+      <div class="relative bg-gradient-to-br from-[#a78bfa] to-[#6366f1] rounded-xl shadow-lg p-7 border-2 border-accent hover:scale-105 transition-transform duration-300 flex flex-col justify-between card-anim" data-aos="fade-up" data-aos-delay="200">
         <div class="absolute -top-8 -right-8 bg-[#232336] text-accent px-4 py-1 rounded-full shadow-lg font-bold text-xs rotate-12">Featured</div>
         <div>
           <h3 class="text-xl font-bold mb-2 text-[#18181b]">Promptly – Chrome Extension for Prompt Optimization</h3>
@@ -212,7 +253,7 @@
         </div>
       </div>
       <!-- Other Projects (overlay removed) -->
-      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between card-anim" data-aos="fade-right" data-aos-delay="300">
         <h3 class="text-xl font-semibold mb-2">Hybrid Prompt Injection Detection System</h3>
         <p class="text-base mb-3 text-gray-300">Hybrid system integrating regular expressions, compound pattern analysis, and machine learning classifiers to detect prompt injection attacks. Adaptable to various LLMs.</p>
         <div class="flex space-x-2 mb-3">
@@ -221,7 +262,7 @@
         </div>
         <a href="https://github.com/ish-kumar/Hybrid-Prompt-Injection-Detection-System" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
       </div>
-      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="400">
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between card-anim" data-aos="fade-left" data-aos-delay="400">
         <h3 class="text-xl font-semibold mb-2">Automated SQL Query Generator using Google Gemini</h3>
         <p class="text-base mb-3 text-gray-300">Streamlit app using Google Gemini to generate SQL queries from natural language, with dynamic validation and optimization. Achieved 95%+ accuracy across diverse query types.</p>
         <div class="flex space-x-2 mb-3">
@@ -230,7 +271,7 @@
         </div>
         <a href="https://github.com/ish-kumar/TextToSQL" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
       </div>
-      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="500">
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between card-anim" data-aos="zoom-in" data-aos-delay="500">
         <h3 class="text-xl font-semibold mb-2">Multiagent RAG System</h3>
         <p class="text-base mb-3 text-gray-300">Modular RAG system combining LangChain and FAISS for vector-based document retrieval and real-time query handling. Boosted efficiency by 25%.</p>
         <div class="flex space-x-2 mb-3">
@@ -239,7 +280,7 @@
         </div>
         <a href="https://github.com/ish-kumar/RAG-groq-llangchain" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
       </div>
-      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="600">
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between card-anim" data-aos="slide-up" data-aos-delay="600">
         <h3 class="text-xl font-semibold mb-2">Data Storytelling</h3>
         <p class="text-base mb-3 text-gray-300">A collection of data storytelling projects and notebooks, focusing on effective communication of insights using Python and visualization libraries.</p>
         <div class="flex space-x-2 mb-3">
@@ -248,7 +289,7 @@
         </div>
         <a href="https://github.com/ish-kumar/Data-Storytelling" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
       </div>
-      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="700">
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between card-anim" data-aos="fade-up" data-aos-delay="700">
         <h3 class="text-xl font-semibold mb-2">Spotify Recommender System</h3>
         <p class="text-base mb-3 text-gray-300">A music recommender system using collaborative filtering and content-based methods, built with Python and Jupyter.</p>
         <div class="flex space-x-2 mb-3">
@@ -258,7 +299,7 @@
         <a href="https://github.com/ish-kumar/Spotify-Recommender-System" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
       </div>
       <!-- MRI Scan Classification Project -->
-      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="800">
+      <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between card-anim" data-aos="zoom-in" data-aos-delay="800">
         <h3 class="text-xl font-semibold mb-2">MRI Scan Classification</h3>
         <p class="text-base mb-3 text-gray-300">Developed a robust deep learning model to classify MRI scans as problematic or non-problematic, contributing to medical diagnosis efficiency. Utilized pre-trained ResNet50 architecture to extract high-level features from MRI images and Grad-CAM to visualize the regions of interest contributing to classification decisions, achieving an accuracy of 89%.</p>
         <div class="flex space-x-2 mb-3">
@@ -285,7 +326,7 @@
     <div class="relative border-l-4 border-accent pl-8 space-y-12">
       <div class="relative" data-aos="fade-up" data-aos-delay="150">
         <div class="absolute -left-5 top-2 w-4 h-4 bg-accent rounded-full border-4 border-[#232336] animate-pulse"></div>
-        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg">
+        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg card-anim">
           <h3 class="text-xl font-semibold mb-1">Prompt Engineer (Part-Time) – Outlier.AI</h3>
           <span class="text-xs accent">Aug 2024 – May 2025</span>
           <ul class="list-disc list-inside text-base mt-2 space-y-1 text-gray-300">
@@ -298,7 +339,7 @@
       </div>
       <div class="relative" data-aos="fade-up" data-aos-delay="200">
         <div class="absolute -left-5 top-2 w-4 h-4 bg-accent rounded-full border-4 border-[#232336] animate-pulse"></div>
-        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg">
+        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg card-anim">
           <h3 class="text-xl font-semibold mb-1">Research Assistant – University at Buffalo, Computational Biology Lab</h3>
           <span class="text-xs accent">Feb 2024 – Dec 2024</span>
           <ul class="list-disc list-inside text-base mt-2 space-y-1 text-gray-300">
@@ -310,7 +351,7 @@
       </div>
       <div class="relative" data-aos="fade-up" data-aos-delay="300">
         <div class="absolute -left-5 top-2 w-4 h-4 bg-accent rounded-full border-4 border-[#232336] animate-pulse"></div>
-        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg">
+        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg card-anim">
           <h3 class="text-xl font-semibold mb-1">Associate Data Scientist – Airdrive Smart Solutions</h3>
           <span class="text-xs accent">Jun 2021 – Jul 2022</span>
           <ul class="list-disc list-inside text-base mt-2 space-y-1 text-gray-300">
@@ -323,7 +364,7 @@
       </div>
       <div class="relative" data-aos="fade-up" data-aos-delay="400">
         <div class="absolute -left-5 top-2 w-4 h-4 bg-accent rounded-full border-4 border-[#232336] animate-pulse"></div>
-        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg">
+        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg card-anim">
           <h3 class="text-xl font-semibold mb-1">Associate Data Scientist – Value Creation</h3>
           <span class="text-xs accent">Aug 2020 – Apr 2021</span>
           <ul class="list-disc list-inside text-base mt-2 space-y-1 text-gray-300">
@@ -335,7 +376,7 @@
       </div>
       <div class="relative" data-aos="fade-up" data-aos-delay="500">
         <div class="absolute -left-5 top-2 w-4 h-4 bg-accent rounded-full border-4 border-[#232336] animate-pulse"></div>
-        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg">
+        <div class="bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg card-anim">
           <h3 class="text-xl font-semibold mb-1">Big Data Analytics Intern – LG Electronics</h3>
           <span class="text-xs accent">Mar 2019 – Aug 2019</span>
           <ul class="list-disc list-inside text-base mt-2 space-y-1 text-gray-300">
@@ -369,15 +410,15 @@
   <section id="contact" class="max-w-4xl mx-auto py-20 px-4" data-aos="fade-up" data-aos-delay="100">
     <h2 class="text-3xl font-bold accent mb-8 border-b border-accent pb-2">Contact</h2>
     <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
-      <div class="flex-1 bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+      <div class="flex-1 bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg flex flex-col items-center social-anim" data-aos="fade-up" data-aos-delay="200">
         <div class="mb-2 font-semibold">Email</div>
         <a href="mailto:ishkumar@buffalo.edu" class="accent underline hover:text-white transition text-2xl flex items-center gap-2"><span class="animate-pulse">✉️</span>ishkumar@buffalo.edu</a>
       </div>
-      <div class="flex-1 bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
+      <div class="flex-1 bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg flex flex-col items-center social-anim" data-aos="fade-up" data-aos-delay="300">
         <div class="mb-2 font-semibold">LinkedIn</div>
         <a href="https://linkedin.com/in/ish-kumar" target="_blank" class="accent underline hover:text-white transition text-2xl flex items-center gap-2"><span class="animate-bounce">💼</span>linkedin.com/in/ish-kumar</a>
       </div>
-      <div class="flex-1 bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
+      <div class="flex-1 bg-[#232336] rounded-xl p-7 border border-gray-700 shadow-lg flex flex-col items-center social-anim" data-aos="fade-up" data-aos-delay="400">
         <div class="mb-2 font-semibold">GitHub</div>
         <a href="https://github.com/ish-kumar" target="_blank" class="accent underline hover:text-white transition text-2xl flex items-center gap-2"><span class="animate-spin">🐙</span>github.com/ish-kumar</a>
       </div>
@@ -391,6 +432,29 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
+    // Typewriter effect for your name
+    const text = "Ish Kumar";
+    const typewriter = document.getElementById("typewriter");
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        typewriter.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 120);
+      }
+    }
+    type();
+    // Animate skill badges on scroll
+    function animateSkillBadges() {
+      document.querySelectorAll('.skill-badges').forEach(function(el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', animateSkillBadges);
+    window.addEventListener('DOMContentLoaded', animateSkillBadges);
   </script>
 </body>
 </html> 
