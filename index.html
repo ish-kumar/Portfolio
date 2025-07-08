@@ -21,8 +21,22 @@
     }
     .gradient-animate {
       background: linear-gradient(270deg, #a78bfa, #6366f1, #f472b6, #a78bfa);
-      background-size: 800% 800%;
+      background-size: 300% 300%;
       animation: gradientBG 16s ease infinite;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .gradient-animate::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      right: -50%;
+      bottom: 0;
+      background: linear-gradient(270deg, #a78bfa, #6366f1, #f472b6, #a78bfa);
+      background-size: 300% 300%;
+      animation: gradientBG 16s ease infinite;
+      z-index: -1;
     }
     @keyframes gradientBG {
       0% {background-position:0% 50%}
@@ -272,13 +286,14 @@
         <a href="https://github.com/ish-kumar/TextToSQL" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
       </div>
       <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between card-anim" data-aos="zoom-in" data-aos-delay="500">
-        <h3 class="text-xl font-semibold mb-2">Multiagent RAG System</h3>
-        <p class="text-base mb-3 text-gray-300">Modular RAG system combining LangChain and FAISS for vector-based document retrieval and real-time query handling. Boosted efficiency by 25%.</p>
+        <h3 class="text-xl font-semibold mb-2">Multi-Agent RAG System</h3>
+        <p class="text-base mb-3 text-gray-300">A professional, modular Retrieval-Augmented Generation (RAG) system with multi-agent architecture: Retriever, Summarizer, Answer Generator, and Explainability agents. Features robust retrieval (Wikipedia API + web search), LLM-powered chunked summarization, direct answer generation, and transparent, source-aware explainability. Includes a modern Streamlit UI for interactive demos and real-world applications.</p>
         <div class="flex space-x-2 mb-3">
           <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">Python</span>
           <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">LangChain</span>
+          <span class="bg-accent text-xs px-2 py-1 rounded text-[#18181b] font-semibold">Streamlit</span>
         </div>
-        <a href="https://github.com/ish-kumar/RAG-groq-llangchain" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
+        <a href="https://github.com/ish-kumar/Multi_Agent_RAG" target="_blank" class="accent underline hover:text-white transition">View on GitHub</a>
       </div>
       <div class="bg-[#232336] rounded-xl shadow-lg p-7 border border-gray-700 hover:scale-[1.03] transition-transform duration-200 flex flex-col justify-between card-anim" data-aos="slide-up" data-aos-delay="600">
         <h3 class="text-xl font-semibold mb-2">Data Storytelling</h3>
